@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Glossary</title>
+    <style>
+        body {
+            background-color: #333; /* Dark background */
+            color: white; /* White text */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="text"] {
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 10px;
+            width: 50%;
+        }
+
+        .definition {
+            font-size: 24px;
+            margin-top: 20px;
+            text-align: center;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px white;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #555;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #888;
+        }
+
+        .glowing-text {
+            text-shadow: 0 0 20px #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="glowing-text">Legal Glossary</h1>
+        <input type="text" id="wordInput" placeholder="Type a legal term..." autofocus>
+        <br><br>
+        <button onclick="getDefinition()">Get Definition</button>
+        <div id="definition" class="definition"></div>
+    </div>
+
+    <script>
+        function getDefinition() {
+            const word = document.getElementById("wordInput").value.toLowerCase();
+            let definitionText = '';
+
+            // Example definitions (You can add more legal terms here)
+            const glossary = {
+                "contract": "A contract is a legally binding agreement between two or more parties.",
+                "tort": "A tort is a civil wrong that causes harm or loss to another person, leading to legal liability.",
+                "negligence": "Negligence is a failure to take reasonable care to avoid causing injury or loss to another person.",
+                "litigation": "Litigation is the process of taking legal action in a court of law.",
+                "plaintiff": "A plaintiff is the person who brings a case against another in a court of law."
+            };
+
+            // Look for the word in the glossary
+            if (glossary[word]) {
+                definitionText = glossary[word];
+            } else {
+                definitionText = "Sorry, the definition for this word is not available.";
+            }
+
+            document.getElementById("definition").textContent = definitionText;
+        }
+    </script>
+
+</body>
+</html>
